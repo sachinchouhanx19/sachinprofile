@@ -3,39 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sachin Chouhan - Advanced Profile</title>
+<title>Sachin Chouhan - Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
-body{font-family:'Roboto',sans-serif;background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;font-family:'Roboto',sans-serif;}
+body{background:linear-gradient(135deg,#6a11cb,#2575fc);color:#fff;}
 a{text-decoration:none;color:inherit;}
-nav{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.6);display:flex;justify-content:center;padding:15px 0;z-index:1000;}
+nav{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.7);display:flex;justify-content:center;padding:15px 0;z-index:1000;}
 nav a{margin:0 15px;font-weight:bold;transition:0.3s;}
 nav a:hover{color:#ffea00;}
-section{padding:60px 20px;min-height:100vh;position:relative;}
+
+/* Section Styles */
+section{padding:80px 20px;min-height:100vh;position:relative;}
 h1,h2,h3{text-align:center;margin-bottom:20px;}
-p{text-align:center;max-width:800px;margin:auto;line-height:1.6;}
+p{text-align:center;max-width:900px;margin:auto;line-height:1.6;}
 
 /* Profile Section */
 #profile{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(to right,#ff7e5f,#feb47b);position:relative;}
-#profile img{width:180px;height:180px;border-radius:50%;border:5px solid #fff;object-fit:cover;margin-bottom:20px;transition:transform 0.5s;}
+#profile img{width:220px;height:220px;border-radius:50%;border:5px solid #fff;object-fit:cover;margin-bottom:20px;transition:transform 0.5s;}
 #profile img:hover{transform:rotate(10deg) scale(1.1);}
 .floating-icons{position:absolute;top:10%;left:50%;transform:translateX(-50%);display:flex;gap:30px;}
 .floating-icons span{font-size:2rem;animation:float 3s ease-in-out infinite alternate;}
 @keyframes float{0%{transform:translateY(0);}100%{transform:translateY(-20px);}}
+#profile h1{font-size:2.8rem;}
+#profile p{font-size:1.3rem;max-width:800px;}
 
-#profile h1{font-size:2.5rem;}
-#profile p{font-size:1.2rem;}
-
-/* Story Section */
-#story{background:linear-gradient(to right,#11998e,#38ef7d);display:flex;justify-content:center;align-items:center;overflow:hidden;}
-#story-content{max-width:800px;background:rgba(0,0,0,0.3);padding:30px;border-radius:20px;position:relative;}
-#story-buttons{display:flex;justify-content:center;gap:20px;margin-top:20px;}
-#story-buttons a{padding:10px 20px;border-radius:10px;font-weight:bold;background:#ffea00;color:#000;transition:0.3s;}
-#story-buttons a:hover{background:#fff;}
-
-/* Typing Effect */
-.typing-text{border-right:.1em solid #fff;white-space:nowrap;overflow:hidden;}
+/* Story Modal */
+#storyModal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:2000;}
+#storyModalContent{background:linear-gradient(to right,#11998e,#38ef7d);padding:40px;border-radius:20px;max-width:900px;max-height:80vh;overflow-y:auto;position:relative;}
+#storyModalContent h2{text-align:center;margin-bottom:20px;}
+#closeStory{position:absolute;top:20px;right:20px;font-size:2rem;cursor:pointer;transition:0.3s;color:#000;}
+#closeStory:hover{color:#ffea00;}
 
 /* Skills Section */
 #skills{background:linear-gradient(to right,#00c6ff,#0072ff);}
@@ -49,20 +47,26 @@ p{text-align:center;max-width:800px;margin:auto;line-height:1.6;}
 #contact input,#contact textarea{width:100%;padding:10px;border-radius:10px;border:none;outline:none;font-size:1rem;}
 #contact button{padding:10px 20px;border:none;border-radius:10px;background:#ffea00;color:#000;font-weight:bold;cursor:pointer;transition:0.3s;}
 #contact button:hover{background:#fff;}
+
+/* Suggestion Section */
+#suggestion{background:linear-gradient(to right,#f7971e,#ffd200);text-align:center;}
+#suggestion form{display:flex;flex-direction:column;align-items:center;gap:15px;max-width:500px;margin:auto;}
+#suggestion input,#suggestion textarea{width:100%;padding:10px;border-radius:10px;border:none;outline:none;font-size:1rem;}
+#suggestion button{padding:10px 20px;border:none;border-radius:10px;background:#ffea00;color:#000;font-weight:bold;cursor:pointer;transition:0.3s;}
+#suggestion button:hover{background:#fff;}
+
+/* Social Links */
 .social-links{margin-top:30px;display:flex;justify-content:center;gap:20px;}
 .social-links a{font-size:2rem;transition:transform 0.3s,color 0.3s;}
 .social-links a:hover{transform:scale(1.3);color:#ffea00;}
 
 /* Gallery Section */
-#gallery{background:linear-gradient(to right,#f7971e,#ffd200);text-align:center;}
+#gallery{text-align:center;background:linear-gradient(to right,#8e2de2,#4a00e0);}
 .gallery-container{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;margin-top:30px;}
-.gallery-container img{width:250px;height:250px;border-radius:15px;object-fit:cover;transition:transform 0.5s;}
-.gallery-container img:hover{transform:scale(1.1) rotate(5deg);}
+.gallery-container img{width:300px;height:300px;object-fit:cover;border:5px solid #fff;border-radius:20px;transition:transform 0.5s;}
+.gallery-container img:hover{transform:scale(1.1) rotate(3deg);}
 
-/* Animations */
-section h2,section p{opacity:0;transform:translateY(30px);animation:fadeInUp 1s forwards;}
-@keyframes fadeInUp{to{opacity:1;transform:translateY(0);}}
-
+/* Footer */
 footer{text-align:center;padding:20px;background:rgba(0,0,0,0.5);}
 </style>
 </head>
@@ -71,15 +75,16 @@ footer{text-align:center;padding:20px;background:rgba(0,0,0,0.5);}
 <!-- Navbar -->
 <nav>
 <a href="#profile">Profile</a>
-<a href="#story">Story</a>
+<a href="#storyTrigger">My Story</a>
 <a href="#skills">Skills</a>
 <a href="#contact">Contact</a>
+<a href="#suggestion">Suggestion</a>
 <a href="#gallery">Gallery</a>
 </nav>
 
 <!-- Profile Section -->
 <section id="profile">
-<img src="https://via.placeholder.com/180" alt="Sachin Chouhan">
+<img src="profile.gph" alt="Sachin Chouhan">
 <div class="floating-icons">
     <span>🐍</span>
     <span>💻</span>
@@ -87,20 +92,34 @@ footer{text-align:center;padding:20px;background:rgba(0,0,0,0.5);}
     <span>♟️</span>
 </div>
 <h1>Sachin Chouhan</h1>
-<p>Python & Coding Learner | Finance Enthusiast | Mathematics & Chess Player | Motivational Storyteller</p>
+<p>Class 12th IIT | Python & Coding Learner | Finance & Math Enthusiast | Motivational Storyteller</p>
+
+<!-- Social Links -->
+<div class="social-links">
+    <a href="https://www.snapchat.com" target="_blank">👻</a>
+    <a href="https://wa.me/9098130360" target="_blank">📱</a>
+    <a href="https://www.pw.com" target="_blank">PW</a>
+    <a href="https://www.youtube.com" target="_blank">▶️</a>
+    <a href="https://t.me/yourtelegram" target="_blank">✈️</a>
+    <a href="https://twitter.com" target="_blank">🐦</a>
+</div>
+
+<!-- My Story Button -->
+<div style="margin-top:30px;text-align:center;">
+<button onclick="openStory()" style="padding:10px 20px;border-radius:10px;border:none;background:#ffea00;color:#000;font-weight:bold;cursor:pointer;">Read My Full Story</button>
+</div>
 </section>
 
-<!-- Story Section -->
-<section id="story">
-<div id="story-content">
+<!-- Story Modal -->
+<div id="storyModal">
+<div id="storyModalContent">
+<span id="closeStory" onclick="closeStory()">×</span>
 <h2>My Story</h2>
-<p class="typing-text" id="storyText"></p>
-<div id="story-buttons">
-<a href="Sachin_Chouhan_Resume.pdf" download>Download Resume</a>
-<a href="Sachin_Chouhan_Resume.pdf" target="_blank">View Resume</a>
+<p>
+Hi, I am Sachin Chouhan. I am a passionate learner in coding, Python, and finance. My journey began at a young age when I discovered my interest in technology and numbers. Over the years, I have worked hard to improve my skills, exploring mathematics, algorithms, and financial analysis. I have always been fascinated by problem-solving, logical thinking, and strategic planning. Alongside academics, I enjoy playing chess, which enhances my analytical and planning abilities. I aspire to become an expert in technology-driven finance solutions, using my coding and analytical skills to make impactful contributions. I love motivating others, sharing knowledge, and continuously learning new concepts to stay ahead in the ever-changing world of technology and finance. This website is a small representation of my work, skills, and passions, where you can know more about me, my projects, and my journey.
+</p>
 </div>
 </div>
-</section>
 
 <!-- Skills Section -->
 <section id="skills">
@@ -116,21 +135,26 @@ footer{text-align:center;padding:20px;background:rgba(0,0,0,0.5);}
 
 <!-- Contact Section -->
 <section id="contact">
-<h2>Contact / Suggestions</h2>
+<h2>Contact Me</h2>
 <form>
 <input type="text" placeholder="Your Name" required>
 <input type="email" placeholder="Your Email" required>
-<textarea placeholder="Your Message / Suggestion" rows="4" required></textarea>
+<textarea placeholder="Your Message" rows="4" required></textarea>
 <button type="submit">Send</button>
 </form>
 <p>Email: <a href="mailto:sachinchouhan0140@gmail.com">sachinchouhan0140@gmail.com</a></p>
 <p>Contact: <a href="tel:9098130360">9098130360</a></p>
-<div class="social-links">
-<a href="https://www.instagram.com" target="_blank">📸</a>
-<a href="https://www.snapchat.com" target="_blank">👻</a>
-<a href="https://www.youtube.com" target="_blank">▶️</a>
-<a href="https://www.pinterest.com" target="_blank">📌</a>
-</div>
+</section>
+
+<!-- Suggestion Section -->
+<section id="suggestion">
+<h2>Suggestion / Feedback</h2>
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea placeholder="Your Suggestion" rows="4" required></textarea>
+<button type="submit">Send</button>
+</form>
 </section>
 
 <!-- Gallery Section -->
@@ -143,28 +167,20 @@ footer{text-align:center;padding:20px;background:rgba(0,0,0,0.5);}
 </div>
 </section>
 
+<!-- Footer -->
 <footer>© 2026 Sachin Chouhan | All Rights Reserved</footer>
 
 <script>
-// Typing effect for story
-const story = "Hi, I am Sachin Chouhan. I am passionate about Python, coding, finance, mathematics, and chess. My journey is full of learning, experimenting, and sharing knowledge with others.";
-let i = 0;
-const speed = 50;
-function typeStory() {
-    if(i < story.length){
-        document.getElementById("storyText").innerHTML += story.charAt(i);
-        i++;
-        setTimeout(typeStory, speed);
-    }
-}
-typeStory();
-
-// Skills progress animation
+// Skills animation
 window.addEventListener('load', ()=>{
     document.querySelectorAll('.skill-bar span').forEach(el=>{
         el.style.width = el.getAttribute('data-width');
     });
 });
+
+// Story Modal
+function openStory(){ document.getElementById('storyModal').style.display='flex'; }
+function closeStory(){ document.getElementById('storyModal').style.display='none'; }
 </script>
 
 </body>
